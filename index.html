@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QURI HIVE BOTANICALS & CO. | Huamanga - Ayacucho</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        darkMain: '#121212',
+                        darkCard: '#1a1a1a',
+                        darkMuted: '#222222',
+                        lightMain: '#fdfbf7',
+                        lightCard: '#ffffff',
+                        quriGold: '#dfb15b',
+                        quriGoldHover: '#c89d48',
+                        quriMint: '#4ade80',
+                        waGreen: '#25D366',
+                        waDark: '#128C7E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Destello dorado premium en hover */
+        .quri-card {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(223, 177, 91, 0.18);
+        }
+        .light .quri-card {
+            border: 1px solid rgba(223, 177, 91, 0.25);
+            box-shadow: 0 4px 15px -2px rgba(223, 177, 91, 0.08);
+        }
+        .quri-card:hover {
+            transform: translateY(-6px);
+        }
+        .dark .quri-card:hover {
+            border-color: rgba(223, 177, 91, 0.85);
+            box-shadow: 0 0 25px rgba(223, 177, 91, 0.28), inset 0 0 12px rgba(223, 177, 91, 0.06);
+        }
+        .light .quri-card:hover {
+            border-color: rgba(223, 177, 91, 0.8);
+            box-shadow: 0 12px 25px -4px rgba(223, 177, 91, 0.25);
+        }
+
+        /* Texto Dorado Metálico */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #dfb15b 0%, #fff2b2 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hexágonos de fondo biocosmético */
+        .dark .hex-bg {
+            background-image: radial-gradient(circle at 50% 20%, rgba(223, 177, 91, 0.07) 0%, transparent 60%),
+                              url("data:image/svg+xml,%3Csvg width='40' height='69.28203230275509' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 17.3205081L20 5.7735027 0 17.3205081V40.4145188L20 51.9615242 40 40.4145188V17.3205081zM20 17.3205081L10 23.0940108V34.6410162L20 40.4145188 30 34.6410162V23.0940108L20 17.3205081z' fill='%23dfb15b' fill-opacity='0.025' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* Pulsación sutil para el WhatsApp flotante */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .pulse-wa {
+            animation: pulse-ring 2.2s infinite;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased bg-lightMain dark:bg-darkMain text-gray-800 dark:text-gray-100 hex-bg min-h-screen flex flex-col">
+
+    <!-- BARRA SUPERIOR DE NAVEGACIÓN -->
+    <nav class="sticky top-0 z-50 bg-lightMain/95 dark:bg-darkMain/95 backdrop-blur-md border-b border-gray-200 dark:border-quriGold/20 transition-colors shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center py-3 md:h-20 gap-3">
+                
+                <!-- Logo Principal en Navbar -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="#inicio" class="flex items-center gap-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-quriGold to-yellow-600 flex items-center justify-center text-darkMain shadow-md shadow-quriGold/20 group-hover:scale-105 transition-transform">
+                            <svg class="w-6 h-6 text-black" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l2.6 4.5h5.2l-2.6 4.5 2.6 4.5h-5.2L12 20l-2.6-4.5H4.2l2.6-4.5L4.2 6.5h5.2L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-lg font-black tracking-tighter text-gray-900 dark:text-white leading-tight">
+                                QURI<span class="text-quriGold">HIVE</span>
+                            </span>
+                            <span class="text-[9px] tracking-widest uppercase text-gray-500 dark:text-gray-400 font-semibold">Botanicals & Co.</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Buscador de productos -->
+                <div class="w-full md:w-5/12 relative">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 dark:text-gray-500">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <input type="text" id="searchInput" class="block w-full pl-10 pr-4 py-2 text-sm border border-gray-300 dark:border-gray-700/80 rounded-full bg-white dark:bg-darkCard text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-quriGold focus:border-quriGold transition-all" placeholder="Buscar jabón (ej. Arroz, Sábila, Café, Cúrcuma)...">
+                </div>
+
+                <!-- Controles: Modo Luz/Oscuro, WhatsApp & Carrito -->
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    
+                    <!-- Botón Tema Blanco / Negro -->
+                    <button id="themeToggleBtn" title="Cambiar tema" class="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-darkCard focus:outline-none border border-transparent dark:border-gray-800 transition-colors">
+                        <svg id="icon-sun" class="w-5 h-5 hidden dark:block text-quriGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg id="icon-moon" class="w-5 h-5 block dark:hidden text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+
+                    <!-- Botón WhatsApp al costado del carrito -->
+                    <a href="https://wa.me/51912769117?text=Hola%20QURI%20HIVE%20BOTANICALS%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener noreferrer" title="Chat de WhatsApp" class="flex items-center gap-1.5 px-3 py-2 rounded-full bg-waGreen/10 hover:bg-waGreen text-waGreen hover:text-white border border-waGreen/30 transition-all font-semibold text-xs shadow-sm">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                        <span class="hidden sm:inline">WhatsApp</span>
+                    </a>
+
+                    <!-- Botón Carrito con Contador Badge -->
+                    <button id="cartBtn" class="relative flex items-center gap-2 px-3 py-2 rounded-full bg-quriGold/10 hover:bg-quriGold text-quriGold hover:text-darkMain border border-quriGold/40 transition-all font-bold text-xs">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <span class="hidden sm:inline">Carrito</span>
+                        <span id="cartBadge" class="flex h-5 w-5 items-center justify-center rounded-full bg-quriGold text-[11px] font-black text-darkMain">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/51912769117?text=Hola%2C%20deseo%20consultar%20sobre%20los%20productos%20Quri%20Hive." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 bg-waGreen hover:bg-waDark text-white p-3.5 sm:p-4 rounded-full shadow-2xl pulse-wa flex items-center justify-center group transition-transform hover:scale-110" title="Escríbenos a WhatsApp">
+        <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <span class="sr-only">Contactar por WhatsApp</span>
+    </a>
+
+    <!-- SECCIÓN HERO / LOGOTIPO CENTRAL -->
+    <header id="inicio" class="relative pt-12 pb-14 text-center overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 relative z-10 flex flex-col items-center">
+            
+            <!-- Logo Insignia -->
+            <div class="relative mb-6">
+                <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl bg-gradient-to-b from-darkCard to-black border-2 border-quriGold/50 shadow-2xl flex items-center justify-center p-2 relative overflow-hidden group">
+                    <img src="logo.jpg" alt="Quri Hive Botanicals & Co." onerror="this.style.display='none'; document.getElementById('vectorLogo').classList.remove('hidden');" class="w-full h-full object-cover rounded-xl">
+                    
+                    <!-- Emblema de Respaldo SVG -->
+                    <div id="vectorLogo" class="hidden flex flex-col items-center justify-center text-center p-2">
+                        <svg class="w-16 h-16 text-quriGold mb-1 filter drop-shadow-[0_0_8px_rgba(223,177,91,0.6)]" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l2.6 4.5h5.2l-2.6 4.5 2.6 4.5h-5.2L12 20l-2.6-4.5H4.2l2.6-4.5L4.2 6.5h5.2L12 2z"/>
+                        </svg>
+                        <span class="text-[11px] font-black tracking-widest text-quriGold uppercase">QURI HIVE</span>
+                        <span class="text-[8px] text-quriMint uppercase">Ayacucho Pureness</span>
+                    </div>
+                </div>
+                <div class="absolute -inset-2 bg-gradient-to-r from-quriGold via-quriMint to-quriGold rounded-2xl blur-lg opacity-20 -z-10"></div>
+            </div>
+
+            <!-- Título de Marca Corporativo -->
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-3">
+                <span class="text-gradient-gold">QURI HIVE</span> BOTANICALS & CO.
+            </h1>
+            
+            <p class="inline-block text-xs sm:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.28em] text-green-700 dark:text-quriMint uppercase bg-green-500/10 border border-green-500/30 px-5 py-2 rounded-full mb-4">
+                HUAMANGA - AYACUCHO // BIO-ENGINEERED ANDEAN PURENESS
+            </p>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 max-w-xl mx-auto italic font-serif">
+                "Fusión de sabiduría botánica andina y biotecnología celular apícola de altitud."
+            </p>
+        </div>
+    </header>
+
+    <!-- SECCIÓN CORPORATIVA (MISIÓN Y VISIÓN) -->
+    <section class="py-8 sm:py-12 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Card Misión -->
+                <div class="bg-lightCard dark:bg-darkCard quri-card rounded-2xl p-7 sm:p-9 relative overflow-hidden group">
+                    <div class="flex items-center gap-3.5 mb-5 border-b border-gray-100 dark:border-gray-800 pb-4">
+                        <div class="w-11 h-11 rounded-xl bg-quriGold/15 border border-quriGold/40 flex items-center justify-center text-quriGold shadow-sm">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-quriGold font-bold block">Propósito Esencial</span>
+                            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Misión</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm text-justify">
+                        Establecida en Huamanga, Ayacucho, <strong class="text-gray-900 dark:text-white font-semibold">QURI HIVE BOTANICALS & CO.</strong> es una corporación biocosmética dedicada a fusionar la riqueza apícola de la cordillera andina con la ingeniería molecular del futuro. Nuestra misión es diseñar y manufacturar tratamientos higiénicos y soluciones dérmicas de vanguardia desde nuestra planta en Huamanga, utilizando miel pura de altitud y activos botánicos locales optimizados científicamente. Desarrollamos productos de frescura radical y alta gama que preservan la salud celular, proyectando la resiliencia, pureza y el legado histórico de la cultura ayacuchana hacia el mañana.
+                    </p>
+                </div>
+
+                <!-- Card Visión -->
+                <div class="bg-lightCard dark:bg-darkCard quri-card rounded-2xl p-7 sm:p-9 relative overflow-hidden group">
+                    <div class="flex items-center gap-3.5 mb-5 border-b border-gray-100 dark:border-gray-800 pb-4">
+                        <div class="w-11 h-11 rounded-xl bg-green-500/15 border border-green-500/40 flex items-center justify-center text-green-600 dark:text-quriMint shadow-sm">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-green-600 dark:text-quriMint font-bold block">Horizonte 2032</span>
+                            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Visión</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm text-justify">
+                        Posicionar a <strong class="text-gray-900 dark:text-white font-semibold">QURI HIVE BOTANICALS & CO.</strong> para el año 2032 como el principal referente global de ingeniería cosmética andina con sello de origen huamangano. Nos proyectamos escalando desde Huamanga, Ayacucho hacia los mercados internacionales más exigentes, liderando la evolución del cuidado personal mediante patentes biotecnológicas que demuestren científicamente la superioridad de los recursos naturales y el conocimiento ancestral de la región de Ayacucho.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE VIDEO PROMOCIONAL -->
+    <section class="py-12 bg-gray-50 dark:bg-darkMuted/30 border-y border-gray-200 dark:border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-xs font-bold tracking-widest uppercase text-quriGold bg-quriGold/10 px-4 py-1.5 rounded-full border border-quriGold/30 mb-4 inline-block">Conoce Nuestro Proceso</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-8">Descubre la Magia de Aurea Nectar</h2>
+            
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-quriGold/20 aspect-video bg-black">
+                <iframe 
+                    src="https://drive.google.com/file/d/1xNOvDl-ZRMmHvegreVfAIqtbOTAyamWZ/preview" 
+                    class="w-full h-full border-0" 
+                    allow="autoplay; fullscreen" 
+                    allowfullscreen
+                    loading="lazy"
+                    title="Video Promocional Aurea Nectar">
+                </iframe>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 italic">Descubre cómo elaboramos nuestra línea premium de cuidado facial.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PRODUCTOS (CATÁLOGO OFICIAL) -->
+    <section id="productos" class="py-12 flex-1">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold tracking-widest uppercase text-quriGold bg-quriGold/10 px-4 py-1.5 rounded-full border border-quriGold/30">Naturaleza en tu piel</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mt-3">Línea de Jabones con Miel Pura</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm max-w-xl mx-auto mt-2">Jabones artesanales de glicerina enriquecidos con miel pura andina para el cuidado y bienestar en cada baño.</p>
+            </div>
+
+            <!-- Grilla de los 6 Productos -->
+            <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- PRODUCTO 1: JABÓN DE ARROZ -->
+                <div class="product-card bg-lightCard dark:bg-darkCard quri-card rounded-2xl overflow-hidden flex flex-col" data-title="jabón de arroz">
+                    <div class="relative bg-gradient-to-br from-amber-50 to-orange-50 dark:from-darkMuted dark:to-darkCard p-6 border-b border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center min-h-[220px]">
+                        <div class="w-32 h-32 rounded-full border-2 border-quriGold/40 p-1 flex items-center justify-center bg-white dark:bg-darkCard shadow-inner">
+                            <img src="arroz.jpg" alt="Jabón de Arroz" onerror="this.onerror=null; this.src='https://placehold.co/300x300/1a1a1a/dfb15b?text=Jab%C3%B3n+Arroz';" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <span class="mt-3 text-[11px] font-bold tracking-wide uppercase px-3 py-1 rounded-full bg-quriGold/15 text-quriGold border border-quriGold/40">
+                            Con Miel Pura
+                        </span>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-bold tracking-widest text-gray-400 dark:text-gray-500 uppercase">Glicerina Artesanal</span>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Jabón de Arroz</h3>
+                            </div>
+                            <span class="text-lg font-black text-quriGold">S/ 8.00</span>
+                        </div>
+
+                        <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 italic mb-4">"Cuidado y bienestar en cada baño"</p>
+
+                        <div class="mb-6 flex-1">
+                            <p class="text-xs font-bold text-gray-800 dark:text-gray-200 uppercase mb-2">Beneficios:</p>
+                            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1.5">
+                                <li class="flex items-start gap-1.5"><span class="text-quriGold font-bold">✔</span> Limpieza suave y efectiva.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-quriGold font-bold">✔</span> Ayuda a mantener la hidratación natural de la piel.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-quriGold font-bold">✔</span> Deja una sensación de suavidad y tersura.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-quriGold font-bold">✔</span> Ideal para el rostro y el cuerpo.</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-100 dark:border-gray-800">
+                            <button onclick="addToCart('Jabón de Arroz', 8.00)" class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5">
+                                <svg class="w-4 h-4 text-quriGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                Al Carrito
+                            </button>
+                            <a href="https://wa.me/51912769117?text=Hola%2C%20deseo%20comprar%20el%20Jab%C3%B3n%20de%20Arroz%20con%20Miel%20Pura%20(S/%208.00)." target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 bg-waGreen hover:bg-waDark text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                                Pedir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 2: JABÓN DE AVENA -->
+                <div class="product-card bg-lightCard dark:bg-darkCard quri-card rounded-2xl overflow-hidden flex flex-col" data-title="jabón de avena">
+                    <div class="relative bg-gradient-to-br from-amber-50 to-orange-50 dark:from-darkMuted dark:to-darkCard p-6 border-b border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center min-h-[220px]">
+                        <div class="w-32 h-32 rounded-full border-2 border-quriGold/40 p-1 flex items-center justify-center bg-white dark:bg-darkCard shadow-inner">
+                            <img src="avena.jpg" alt="Jabón de Avena" onerror="this.onerror=null; this.src='https://placehold.co/300x300/1a1a1a/dfb15b?text=Jab%C3%B3n+Avena';" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <span class="mt-3 text-[11px] font-bold tracking-wide uppercase px-3 py-1 rounded-full bg-quriGold/15 text-quriGold border border-quriGold/40">
+                            Con Miel Pura
+                        </span>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-bold tracking-widest text-gray-400 dark:text-gray-500 uppercase">Glicerina Artesanal</span>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Jabón de Avena</h3>
+                            </div>
+                            <span class="text-lg font-black text-quriGold">S/ 8.00</span>
+                        </div>
+
+                        <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 italic mb-4">"Cuidado y bienestar en cada baño"</p>
+
+                        <div class="mb-6 flex-1">
+                            <p class="text-xs font-bold text-gray-800 dark:text-gray-200 uppercase mb-2">Beneficios:</p>
+                            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1.5">
+                                <li class="flex items-start gap-1.5"><span class="text-quriGold font-bold">✔</span> Limpieza delicada y confortable.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-quriGold font-bold">✔</span> Ayuda a calmar la piel y reducir la sensación de resequedad.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-quriGold font-bold">✔</span> Deja la piel suave y saludable.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-quriGold font-bold">✔</span> Ideal para todo tipo de piel, incluso sensible.</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-100 dark:border-gray-800">
+                            <button onclick="addToCart('Jabón de Avena', 8.00)" class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5">
+                                <svg class="w-4 h-4 text-quriGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                Al Carrito
+                            </button>
+                            <a href="https://wa.me/51912769117?text=Hola%2C%20deseo%20comprar%20el%20Jab%C3%B3n%20de%20Avena%20con%20Miel%20Pura%20(S/%208.00)." target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 bg-waGreen hover:bg-waDark text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                                Pedir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 3: JABÓN DE SÁBILA -->
+                <div class="product-card bg-lightCard dark:bg-darkCard quri-card rounded-2xl overflow-hidden flex flex-col" data-title="jabón de sábila">
+                    <div class="relative bg-gradient-to-br from-green-50 to-emerald-50 dark:from-darkMuted dark:to-darkCard p-6 border-b border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center min-h-[220px]">
+                        <div class="w-32 h-32 rounded-full border-2 border-green-500/40 p-1 flex items-center justify-center bg-white dark:bg-darkCard shadow-inner">
+                            <img src="sabila.jpg" alt="Jabón de Sábila" onerror="this.onerror=null; this.src='https://placehold.co/300x300/1a1a1a/4ade80?text=Jab%C3%B3n+S%C3%A1bila';" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <span class="mt-3 text-[11px] font-bold tracking-wide uppercase px-3 py-1 rounded-full bg-green-500/15 text-green-600 dark:text-quriMint border border-green-500/40">
+                            Con Miel Pura
+                        </span>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-bold tracking-widest text-gray-400 dark:text-gray-500 uppercase">Glicerina Artesanal</span>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Jabón de Sábila</h3>
+                            </div>
+                            <span class="text-lg font-black text-green-600 dark:text-quriMint">S/ 8.00</span>
+                        </div>
+
+                        <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 italic mb-4">"Cuidado y bienestar en cada baño"</p>
+
+                        <div class="mb-6 flex-1">
+                            <p class="text-xs font-bold text-gray-800 dark:text-gray-200 uppercase mb-2">Beneficios:</p>
+                            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1.5">
+                                <li class="flex items-start gap-1.5"><span class="text-green-500 font-bold">✔</span> Aporta una sensación refrescante y de limpieza.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-green-500 font-bold">✔</span> Ayuda a mantener la hidratación natural.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-green-500 font-bold">✔</span> Suaviza y calma la piel.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-green-500 font-bold">✔</span> Ideal para el rostro y el cuerpo.</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-100 dark:border-gray-800">
+                            <button onclick="addToCart('Jabón de Sábila', 8.00)" class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5">
+                                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                Al Carrito
+                            </button>
+                            <a href="https://wa.me/51912769117?text=Hola%2C%20deseo%20comprar%20el%20Jab%C3%B3n%20de%20S%C3%A1bila%20con%20Miel%20Pura%20(S/%208.00)." target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 bg-waGreen hover:bg-waDark text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                                Pedir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 4: JABÓN DE NARANJA -->
+                <div class="product-card bg-lightCard dark:bg-darkCard quri-card rounded-2xl overflow-hidden flex flex-col" data-title="jabón de naranja">
+                    <div class="relative bg-gradient-to-br from-orange-50 to-amber-50 dark:from-darkMuted dark:to-darkCard p-6 border-b border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center min-h-[220px]">
+                        <div class="w-32 h-32 rounded-full border-2 border-orange-500/40 p-1 flex items-center justify-center bg-white dark:bg-darkCard shadow-inner">
+                            <img src="naranja.jpg" alt="Jabón de Naranja" onerror="this.onerror=null; this.src='https://placehold.co/300x300/1a1a1a/f97316?text=Jab%C3%B3n+Naranja';" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <span class="mt-3 text-[11px] font-bold tracking-wide uppercase px-3 py-1 rounded-full bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/40">
+                            Con Miel Pura
+                        </span>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-bold tracking-widest text-gray-400 dark:text-gray-500 uppercase">Glicerina Artesanal</span>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Jabón de Naranja</h3>
+                            </div>
+                            <span class="text-lg font-black text-orange-500">S/ 8.00</span>
+                        </div>
+
+                        <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 italic mb-4">"Cuidado y bienestar en cada baño"</p>
+
+                        <div class="mb-6 flex-1">
+                            <p class="text-xs font-bold text-gray-800 dark:text-gray-200 uppercase mb-2">Beneficios:</p>
+                            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1.5">
+                                <li class="flex items-start gap-1.5"><span class="text-orange-500 font-bold">✔</span> Limpieza profunda y refrescante.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-orange-500 font-bold">✔</span> Aporta un aroma cítrico natural y agradable.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-orange-500 font-bold">✔</span> Ayuda a revitalizar la piel.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-orange-500 font-bold">✔</span> Ideal para el rostro y el cuerpo.</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-100 dark:border-gray-800">
+                            <button onclick="addToCart('Jabón de Naranja', 8.00)" class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5">
+                                <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                Al Carrito
+                            </button>
+                            <a href="https://wa.me/51912769117?text=Hola%2C%20deseo%20comprar%20el%20Jab%C3%B3n%20de%20Naranja%20con%20Miel%20Pura%20(S/%208.00)." target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 bg-waGreen hover:bg-waDark text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                                Pedir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 5: JABÓN DE CÚRCUMA -->
+                <div class="product-card bg-lightCard dark:bg-darkCard quri-card rounded-2xl overflow-hidden flex flex-col" data-title="jabón de cúrcuma">
+                    <div class="relative bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-darkMuted dark:to-darkCard p-6 border-b border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center min-h-[220px]">
+                        <div class="w-32 h-32 rounded-full border-2 border-yellow-500/40 p-1 flex items-center justify-center bg-white dark:bg-darkCard shadow-inner">
+                            <img src="curcuma.jpg" alt="Jabón de Cúrcuma" onerror="this.onerror=null; this.src='https://placehold.co/300x300/1a1a1a/eab308?text=Jab%C3%B3n+C%C3%BArcuma';" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <span class="mt-3 text-[11px] font-bold tracking-wide uppercase px-3 py-1 rounded-full bg-yellow-500/15 text-yellow-600 dark:text-yellow-400 border border-yellow-500/40">
+                            Con Miel Pura
+                        </span>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-bold tracking-widest text-gray-400 dark:text-gray-500 uppercase">Glicerina Artesanal</span>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Jabón de Cúrcuma</h3>
+                            </div>
+                            <span class="text-lg font-black text-yellow-600 dark:text-yellow-400">S/ 8.00</span>
+                        </div>
+
+                        <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 italic mb-4">"Cuidado y bienestar en cada baño"</p>
+
+                        <div class="mb-6 flex-1">
+                            <p class="text-xs font-bold text-gray-800 dark:text-gray-200 uppercase mb-2">Beneficios:</p>
+                            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1.5">
+                                <li class="flex items-start gap-1.5"><span class="text-yellow-500 font-bold">✔</span> Aporta un toque botánico y natural.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-yellow-500 font-bold">✔</span> Ayuda a mantener la piel limpia y cuidada.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-yellow-500 font-bold">✔</span> Deja una sensación de suavidad.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-yellow-500 font-bold">✔</span> Ideal para el rostro y el cuerpo.</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-100 dark:border-gray-800">
+                            <button onclick="addToCart('Jabón de Cúrcuma', 8.00)" class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5">
+                                <svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                Al Carrito
+                            </button>
+                            <a href="https://wa.me/51912769117?text=Hola%2C%20deseo%20comprar%20el%20Jab%C3%B3n%20de%20C%C3%BArcuma%20con%20Miel%20Pura%20(S/%208.00)." target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 bg-waGreen hover:bg-waDark text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                                Pedir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 6: JABÓN DE CAFÉ -->
+                <div class="product-card bg-lightCard dark:bg-darkCard quri-card rounded-2xl overflow-hidden flex flex-col" data-title="jabón de café">
+                    <div class="relative bg-gradient-to-br from-stone-100 to-amber-100 dark:from-darkMuted dark:to-darkCard p-6 border-b border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center min-h-[220px]">
+                        <div class="w-32 h-32 rounded-full border-2 border-stone-600/40 p-1 flex items-center justify-center bg-white dark:bg-darkCard shadow-inner">
+                            <img src="cafe.jpg" alt="Jabón de Café" onerror="this.onerror=null; this.src='https://placehold.co/300x300/1a1a1a/78350f?text=Jab%C3%B3n+Caf%C3%A9';" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <span class="mt-3 text-[11px] font-bold tracking-wide uppercase px-3 py-1 rounded-full bg-amber-900/15 text-amber-800 dark:text-amber-300 border border-amber-800/40">
+                            Con Miel Pura
+                        </span>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-[10px] font-bold tracking-widest text-gray-400 dark:text-gray-500 uppercase">Glicerina Artesanal</span>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Jabón de Café</h3>
+                            </div>
+                            <span class="text-lg font-black text-amber-700 dark:text-amber-400">S/ 8.00</span>
+                        </div>
+
+                        <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 italic mb-4">"Cuidado y bienestar en cada baño"</p>
+
+                        <div class="mb-6 flex-1">
+                            <p class="text-xs font-bold text-gray-800 dark:text-gray-200 uppercase mb-2">Beneficios:</p>
+                            <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1.5">
+                                <li class="flex items-start gap-1.5"><span class="text-amber-600 font-bold">✔</span> Limpieza profunda y agradable.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-amber-600 font-bold">✔</span> Exfoliación suave con partículas de café.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-amber-600 font-bold">✔</span> Deja la piel más lisa y suave.</li>
+                                <li class="flex items-start gap-1.5"><span class="text-amber-600 font-bold">✔</span> Ideal para el rostro y el cuerpo.</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-100 dark:border-gray-800">
+                            <button onclick="addToCart('Jabón de Café', 8.00)" class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5">
+                                <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                Al Carrito
+                            </button>
+                            <a href="https://wa.me/51912769117?text=Hola%2C%20deseo%20comprar%20el%20Jab%C3%B3n%20de%20Caf%C3%A9%20con%20Miel%20Pura%20(S/%208.00)." target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 bg-waGreen hover:bg-waDark text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                                Pedir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Alerta visual si no hay resultados en el buscador -->
+            <div id="noResults" class="hidden text-center py-16">
+                <svg class="w-12 h-12 text-gray-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <p class="text-gray-500 dark:text-gray-400 font-medium">No se encontraron productos que coincidan con la búsqueda.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="bg-gray-100 dark:bg-darkCard border-t border-gray-200 dark:border-quriGold/20 mt-auto transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            
+            <!-- Bloque superior de 4 columnas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                
+                <!-- Columna 1: Identidad Corporativa -->
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-quriGold flex items-center justify-center text-darkMain font-black">
+                            Q
+                        </div>
+                        <span class="text-base font-extrabold text-gray-900 dark:text-white">QURI HIVE BOTANICALS S.A.C.</span>
+                    </div>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mb-1"><strong class="text-gray-800 dark:text-gray-200">RUC:</strong> 20612984510</p>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mb-4">Biocosmética apícola de vanguardia formulada en los Andes peruanos.</p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://wa.me/51912769117" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-waGreen/20 text-waGreen hover:bg-waGreen hover:text-white flex items-center justify-center transition-colors">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+                        </a>
+                        <a href="mailto:ubertbellido@gmail.com" class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-quriGold hover:text-darkMain flex items-center justify-center transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Acerca De -->
+                <div>
+                    <h3 class="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-4">Acerca de</h3>
+                    <ul class="space-y-2.5 text-xs text-gray-600 dark:text-gray-400">
+                        <li><a href="#inicio" class="hover:text-quriGold transition-colors">Nosotros y Filosofía</a></li>
+                        <li><a href="#productos" class="hover:text-quriGold transition-colors">Fórmulas Biotecnológicas</a></li>
+                        <li><a href="#productos" class="hover:text-quriGold transition-colors">Propiedades de la Miel Pura</a></li>
+                        <li><a href="#" class="hover:text-quriGold transition-colors">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Enlaces Importantes -->
+                <div>
+                    <h3 class="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-4">Enlaces Importantes</h3>
+                    <ul class="space-y-2.5 text-xs text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-quriGold transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="#" class="hover:text-quriGold transition-colors">Políticas de Envíos Nacionales</a></li>
+                        <li><a href="#" class="hover:text-quriGold transition-colors">Garantía de Pureza Huamanga</a></li>
+                        <li><a href="#" class="hover:text-quriGold transition-colors">Libro de Reclamaciones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto Oficial -->
+                <div>
+                    <h3 class="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-4">Contacto Directo</h3>
+                    <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <span class="text-quriGold font-bold">WhatsApp:</span> 
+                            <a href="https://wa.me/51912769117" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold text-gray-800 dark:text-gray-200">+51 912 769 117</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-quriGold font-bold">Email:</span> 
+                            <a href="mailto:ubertbellido@gmail.com" class="hover:underline">ubertbellido@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-quriGold font-bold">Horario:</span> 
+                            <span>Lunes a Sábado, 8:30 AM – 6:30 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Barra Inferior de Métodos de Pago y Dirección -->
+            <div class="border-t border-gray-200 dark:border-gray-800/80 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-red-500"></span> 
+                        Jr. Dos de Mayo 418, Huamanga, Ayacucho — Showroom & Laboratorio
+                    </span>
+                    <span class="hidden md:inline text-gray-400">|</span>
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-green-500"></span> 
+                        Pagos: Yape · Plin · Transferencias BCP / BBVA
+                    </span>
+                </div>
+                <div class="text-center md:text-right">
+                    <p>&copy; 2026 QURI HIVE BOTANICALS & CO. Todos los derechos reservados.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- MODAL OFFCANVAS: CARRITO DE COMPRAS -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden">
+        <div id="cartOverlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity opacity-0"></div>
+        
+        <div id="cartPanel" class="absolute top-0 right-0 h-full w-full sm:w-[420px] bg-lightMain dark:bg-darkCard shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col border-l border-gray-200 dark:border-quriGold/20">
+            
+            <div class="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-800">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-quriGold/20 flex items-center justify-center text-quriGold">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white">Bolsa de Pedidos</h3>
+                        <p class="text-[11px] text-gray-500">QURI HIVE BOTANICALS & CO.</p>
+                    </div>
+                </div>
+                <button id="closeCartBtn" class="p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-3 no-scrollbar"></div>
+
+            <div class="p-5 border-t border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-darkMuted/50">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-sm font-semibold text-gray-600 dark:text-gray-300">Total a Pagar:</span>
+                    <span id="cartTotal" class="text-2xl font-black text-quriGold">S/ 0.00</span>
+                </div>
+                <button onclick="checkoutCartToWhatsApp()" class="w-full py-3.5 px-4 rounded-xl bg-waGreen hover:bg-waDark text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-waGreen/25 transition-all">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                    Confirmar Pedido por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIÓN TIPO TOAST -->
+    <div id="toastNotification" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white dark:bg-white dark:text-gray-900 px-5 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none z-50 border border-quriGold/40 text-xs font-bold">
+        <svg class="w-5 h-5 text-quriMint dark:text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span id="toastMessage">¡Producto añadido al carrito!</span>
+    </div>
+
+    <!-- LÓGICA JAVASCRIPT INTEGRADA -->
+    <script>
+        /* 1. MODO CLARO Y OSCURO */
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const rootHtml = document.documentElement;
+
+        if (localStorage.getItem('quri_theme') === 'light') {
+            rootHtml.classList.remove('dark');
+        } else {
+            rootHtml.classList.add('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            rootHtml.classList.toggle('dark');
+            const isDark = rootHtml.classList.contains('dark');
+            localStorage.setItem('quri_theme', isDark ? 'dark' : 'light');
+        });
+
+        /* 2. BUSCADOR DE PRODUCTOS EN TIEMPO REAL */
+        const searchInput = document.getElementById('searchInput');
+        const productCards = document.querySelectorAll('.product-card');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            productCards.forEach(card => {
+                const title = card.getAttribute('data-title') || '';
+                if (title.includes(query)) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        });
+
+        /* 3. SISTEMA DE CARRITO DE COMPRAS */
+        let cart = [];
+        const cartBadge = document.getElementById('cartBadge');
+        const cartModal = document.getElementById('cartModal');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartPanel = document.getElementById('cartPanel');
+        const cartBtn = document.getElementById('cartBtn');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const cartTotal = document.getElementById('cartTotal');
+        const toast = document.getElementById('toastNotification');
+        const toastMessage = document.getElementById('toastMessage');
+
+        function showNotification(msg) {
+            toastMessage.textContent = msg;
+            toast.classList.remove('opacity-0', 'translate-y-10');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-10');
+            }, 2500);
+        }
+
+        window.addToCart = function(productName, price) {
+            const existingIndex = cart.findIndex(item => item.name === productName);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ name: productName, price: price, qty: 1 });
+            }
+            updateCart();
+            showNotification(`+1 ${productName} añadido al carrito`);
+        };
+
+        window.changeQty = function(index, delta) {
+            if (!cart[index]) return;
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCart();
+        };
+
+        function updateCart() {
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartBadge.textContent = totalQty;
+
+            const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            cartTotal.textContent = `S/ ${totalAmount.toFixed(2)}`;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-16 text-gray-400 dark:text-gray-500">
+                        <svg class="w-12 h-12 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <p class="text-sm font-medium">Tu bolsa de compras está vacía.</p>
+                        <p class="text-xs mt-1">Explora nuestros jabones artesanales con miel pura.</p>
+                    </div>
+                `;
+            } else {
+                cartItemsContainer.innerHTML = cart.map((item, idx) => `
+                    <div class="flex items-center justify-between p-3.5 bg-white dark:bg-darkMuted rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm">
+                        <div class="flex-1 pr-3">
+                            <h4 class="text-xs font-bold text-gray-900 dark:text-white leading-tight">${item.name}</h4>
+                            <span class="text-[11px] text-quriGold font-semibold">S/ ${item.price.toFixed(2)} c/u</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-2">
+                            <div class="flex items-center border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden bg-gray-50 dark:bg-darkCard">
+                                <button onclick="changeQty(${idx}, -1)" class="px-2 py-1 text-gray-500 hover:text-gray-900 dark:hover:text-white text-xs font-bold transition">−</button>
+                                <span class="px-2 py-1 text-xs font-bold text-gray-800 dark:text-gray-200">${item.qty}</span>
+                                <button onclick="changeQty(${idx}, 1)" class="px-2 py-1 text-gray-500 hover:text-gray-900 dark:hover:text-white text-xs font-bold transition">+</button>
+                            </div>
+                            
+                            <span class="text-xs font-black text-gray-900 dark:text-white w-16 text-right">
+                                S/ ${(item.price * item.qty).toFixed(2)}
+                            </span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function toggleCartModal() {
+            if (cartModal.classList.contains('hidden')) {
+                cartModal.classList.remove('hidden');
+                setTimeout(() => {
+                    cartOverlay.classList.remove('opacity-0');
+                    cartPanel.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                cartOverlay.classList.add('opacity-0');
+                cartPanel.classList.add('translate-x-full');
+                setTimeout(() => {
+                    cartModal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        cartBtn.addEventListener('click', toggleCartModal);
+        closeCartBtn.addEventListener('click', toggleCartModal);
+        cartOverlay.addEventListener('click', toggleCartModal);
+
+        /* 4. CHECKOUT DIRECTO POR WHATSAPP (912769117) */
+        window.checkoutCartToWhatsApp = function() {
+            if (cart.length === 0) {
+                showNotification("Añade productos antes de enviar tu pedido");
+                return;
+            }
+
+            let text = "🍯 *NUEVO PEDIDO - QURI HIVE BOTANICALS & CO.*\n";
+            text += "📍 *Destino:* Huamanga, Ayacucho / Envíos Nacionales\n\n";
+            text += "🛒 *Detalle de Productos:*\n";
+
+            cart.forEach(item => {
+                text += `• ${item.qty}x ${item.name} — S/ ${(item.price * item.qty).toFixed(2)}\n`;
+            });
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            text += `\n💰 *Total a Cancelar:* S/ ${total.toFixed(2)}\n\n`;
+            text += "Por favor, indíquenme los datos de pago (Yape/Plin/Transferencia) y la coordinación del envío.";
+
+            const waNumber = "51912769117";
+            const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+            window.open(waUrl, '_blank');
+        };
+
+        updateCart();
+    </script>
+</body>
+</html>
